@@ -1,3 +1,6 @@
+/* en Visual Studio Code puede usar ctrl + } para escribir notas como estas, son comentarios que no seran cargados como codigo y son una nota para los devs */
+/* en Visual Studio Code puede usart alt+z para leer de forma mas comoda */
+
 /* puedes seleccionar elementos de diversas formas}
 
     para seleccionar una clase, pones el caracter "." ATRAS del nombre de la clase, ej: .cubo
@@ -131,3 +134,4 @@ header nav{
     align-items: center;
     gap: 25px;
 }
+
