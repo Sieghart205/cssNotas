@@ -1,0 +1,133 @@
+/* puedes seleccionar elementos de diversas formas}
+
+    para seleccionar una clase, pones el caracter "." ATRAS del nombre de la clase, ej: .cubo
+    para seleccionar un id, se pone el caracter "#" atras del nombre del id, ej: #info,
+    puedes seleccionar todos los elementos existentes en el documento con el caracter *,
+    puedes usar etiquetas para seleccionar, ej: h1
+    puedes elejir todos los elementos x dentro de una etiqueta, ej: .info h1, en este caso se aplicarian los estilos unicamente a los h1 dentro de una clase .info
+
+    */
+
+/* en este ejemplo, se seleccionan todos los elementos del html y se elimina tanto su Margen como su espacio del centro al borde, y se les aplica una familia de fuentes
+tenga en cuenta que si agrega mas de una, intentara usar la primer fuente, si no funciona, la segunda, y asi sucesivamente hasta la ultima */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* en el ejemplo de abajo, con padding se da espacio entre el borde y el contenido para que no aparezca uniddo a los bordes
+
+background-color para darle color de fondo solo a los section
+
+margin-bottom solo para dar una margen a la parte de abajo
+
+border-bottom para dar borde solo a la parte de abajo*/
+
+section{
+    padding: 25px;
+    background-color: burlywood;
+    margin-bottom: 25px;
+    border-bottom: rgb(0,0,0) solid 10px;
+}
+
+/* el parametro Border acepta 3 datos:
+    el primero, es el color del borde, puede ser representado por nombre, codigo hexadecimal o con la funcion rgb
+    el segundo es el tipo de borde "en visual studio code puede precionar ctrl+espacio para ver todas las posibilidades"
+    el tercero es el tamaño del borde
+    puedes modificar un solo lado del borde con los parametros border-top/bottom/left/right (arriba, abajo, izquierda, derecha respectivamente)
+    con el parametro border-radius se pueden redondear las esquinas de un borde
+    
+    las unidades de medida son:
+    px
+    em
+    rem
+    vw
+    vh
+    pt
+    
+    siendo vw el largo total de la pantalla en horizontal (100vw es toda la pantalla)
+    y vh lo mismo pero con el eje vertical*/
+
+    /* en el siguiente ejemplo se usa un background-image para modificar el color del fondo, y el linear-gradient para generar un degradado, se pueden usar tantos colores como se desee, si se desea rotar el gradiente, al inicio de la funcion linear se pone un dato con la unidad de medida deg, la cual representa grados de angulo*/
+
+#degrade{
+    background-image: linear-gradient(-45deg,red,violet);
+}
+
+/* en el siguiente caso, se usa la funcion url para llamar a una imagen dentro de los archivos del proyecto
+para evitar que la imagen se duplique, se usa el background-repeat:no-repeat
+el background-size:cover es para evitar que la imagen se estire */
+
+#img{
+    background-image: url(img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* en el siguiente ejemplo, el parametro aspect-ratio define la relacion de aspecto (1/1 es cuadrado, 3/4 tamaño carta, tec), tras definir la relacion de aspecto, solo es necesario agregar la medida del width a un elemento y el height se definira automaticamente */
+
+.cubo{
+    aspect-ratio: 1/1;
+    width: 200px;
+    background-color: aquamarine;
+    margin: 25px;
+}
+
+/* cuando al border-radius se usa con porcentajes, modifica no solo las esquinas del borde, sino que tambien modifica todos los lados, mientras mas cerca del 100% este mas circular sera */
+
+.circle{
+    aspect-ratio: 1/1;
+    width: 200px;
+    background-color: blueviolet;
+    border-radius: 100%;
+    margin: 25px;
+}
+
+/* la funcion display:flex hace que los objetos en vez de enlistarse en forma vertical, lo hagan de forma horizontal
+la funcion gap agrega una margen entre los elementos del objeto al que se añade el display flex, pero no entre el objeto y el borde 
+el parametro flex-wrap hace que una vez los elementos dentro de un objeto con display flex lleguen al borde, en vez de salirse del borde, bajen a la siguiente linea
+el flex-direction decide la forma en la que deseas tener los elementos, row es en modo filas, column en fornma columnas
+
+una vez uses el display flex, se desbloquean los parametros justify-content y align-content, los cuales permiten alinear de forma horizontal y vertical los elementos dentro del flex respectivamente
+*/
+
+#info{
+    display: flex;
+    gap:50px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* en este caso, el parametro object-fit define como aparece el contenido de la imagen, en este caso se usa Cover para que la imagen no se vea estirada, sin embargo en Visual Studio Code puede usar las teclas ctrl+espacio para ver los posibles parametros */
+
+.img{
+    aspect-ratio: 1/1;
+    width: 200px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+/* ahora estilizare el header usando contenidos vistos antes, añadiendo comentarios inline de los contenidos no vistos */
+
+header{
+    display: flex;
+    justify-content: flex-start;
+    padding: 25px;
+    background-color: brown;
+    color: #fff; /* modifica el color del texto */
+    position: fixed; /* se usa para que al bajar en la pagina, el header se mantenga fijado en la parte superior (puede usar ctrl+espacio para ver las posibles opciones del parametro position) */
+    width: 100vw;
+    overflow: hidden; /* se usa para que cuando el contenido del header sobrepase el tamaño del header, desaparezca*/
+    border-bottom: #000 solid 15px;
+}
+
+header nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
